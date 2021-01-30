@@ -4,16 +4,15 @@ CREATE DATABASE total_war_info;
 \c total_war_info;
 
 CREATE TABLE public."PlayableHero" (
-    "Name" text NOT NULL,
-	"Damage" double NOT NULL,
-    "SubredditMatch" text DEFAULT '.*'::text NOT NULL,
-    "CommentMatch" text NOT NULL,
-    "ReplyMessage" text NOT NULL,
-    "IsReplyRegexp" boolean DEFAULT false,
-    id integer NOT NULL,
-    "Handle" text DEFAULT 'Agree-with-you'::text NOT NULL
+    "Name" TEXT NOT NULL,
+	"Damage" NUMERIC NOT NULL,
+	"DamageDelay" NUMERIC NOT NULL,
+	"HP" NUMERIC NOT NULL,
+	"Rarity" INTEGER NOT NULL,
+	"Specialty" TEXT NOT NULL
 );
 
-
+INSERT INTO public."PlayableHero"("Name", "Damage", "DamageDelay", "HP", "Rarity", "Specialty")
+	VALUES ('Frost', 10.01, 2, 90, 1, 'Shooter');
 
 
