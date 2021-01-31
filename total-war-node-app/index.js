@@ -11,7 +11,7 @@ app.get('/heroes', (req, res) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   
   DatabaseUtil.getAllHeroes().then(function(heroData) {
-    res.send({message: heroData});
+    res.json(heroData);
   });
 });
 

@@ -1,0 +1,28 @@
+.card {
+   width: 350px;
+   height: 600px;
+}
+
+.card img {
+   width: 200px;
+}
+
+.card, .card p, .card mat-card-content, .card .mat-card-header, .card .mat-card-title, .card .mat-card-subtitle, .card .mat-card-image {
+   background-color: #361d03; /*#fff1f0;*/
+}
+
+.card p {
+  color: #ffffcc;
+}
+
+::ng-deep .mat-tab-header {
+	background-color: #deb633;
+}
+
+body {
+  background-color: #87b23e;
+}
+
+.card .generalInfo {
+	color: red;
+}

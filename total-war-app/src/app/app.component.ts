@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Hero } from './components/hero/hero';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'total-war-guide';
+  allPlayableHeroes;
   
   constructor(private http: HttpClient) { }
   
   ngOnInit() {
-    this.http.get<any>('http://localhost:3000/heroes').subscribe(data => {
+    this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe(data => {
       console.log(data);
+      console.log(data[0]);
+      this.allPlayableHeroes = data;
     });
   }
 }
