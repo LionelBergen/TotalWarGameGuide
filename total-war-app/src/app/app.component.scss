@@ -3,13 +3,24 @@
 	overflow: hidden !IMPORTANT;
 }
 
+/** Top nav bar **/
 ::ng-deep .mat-tab-header {
 	background-color: #deb633;
 }
 
+/** Padding between top nav bar and cards **/
+.cardsDiv {
+	padding-top: 20px;
+}
+
+.cardContainer {
+  margin: 20px;
+}
+
 .card {
-   width: 350px;
+   width: 250px;
    height: 600px;
+   padding: 30px;
 }
 
 .card .heroImage {
@@ -21,12 +32,26 @@
    float: right;
 }
 
+/** So each hero card takes up the same space, despite being different heights **/
 .cardImageContainer {
 	height: 250px;
 }
 
-.card, .card p, .card mat-card-content, .card .mat-card-header, .card .mat-card-title, .card .mat-card-subtitle, .card .mat-card-image {
+.cardSpec1, .cardSpec2, .cardSpec3, .card, .card p, .card mat-card-content, .card .mat-card-header, .card .mat-card-title, .card .mat-card-subtitle, .card .mat-card-image {
    background-color: #361d03; /*#fff1f0;*/
+   border-radius: 25px;
+}
+
+.cardSpec1 {
+	border: 5px solid green;
+}
+
+.cardSpec2 {
+	border: 5px solid orange;
+}
+
+.cardSpec3 {
+	border: 5px solid blue;
 }
 
 .card p {
@@ -43,8 +68,4 @@ body {
 
 .card .heroTitle {
 	font-weight: bold;
-}
-
-.cardsDiv {
-	padding-top: 20px;
 }

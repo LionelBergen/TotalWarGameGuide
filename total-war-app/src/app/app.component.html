@@ -1,7 +1,7 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Heros">
     <div fxLayout="row wrap" fxLayoutGap="16px grid" class="cardsDiv">
-      <div *ngFor="let playableHero of allPlayableHeroes" fxLayout="column" fxLayoutAlign="none" >
+      <div *ngFor="let playableHero of allPlayableHeroes" fxLayout="column" fxLayoutAlign="none" class="cardSpec{{ playableHero.rarity }} cardContainer">
         <mat-card class="card">
           <mat-card-header>
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
