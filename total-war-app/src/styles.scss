@@ -3,5 +3,7 @@
 html, body { height: 100%; }
 body { 
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: #87b23e;
+  /*background-color: #87b23e;*/
+  background: url('./assets/images/arena.png') repeat-y;
+  background-size: 100%;
 }
