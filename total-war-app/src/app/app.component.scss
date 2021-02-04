@@ -1,10 +1,28 @@
+/** Remove double scroll bars **/
+::ng-deep .mat-tab-body-content {
+	overflow: hidden !IMPORTANT;
+}
+
+::ng-deep .mat-tab-header {
+	background-color: #deb633;
+}
+
 .card {
    width: 350px;
    height: 600px;
 }
 
-.card img {
+.card .heroImage {
    width: 200px;
+}
+
+.card .specImage {
+   width: 80px;
+   float: right;
+}
+
+.cardImageContainer {
+	height: 250px;
 }
 
 .card, .card p, .card mat-card-content, .card .mat-card-header, .card .mat-card-title, .card .mat-card-subtitle, .card .mat-card-image {
@@ -15,14 +33,18 @@
   color: #ffffcc;
 }
 
-::ng-deep .mat-tab-header {
-	background-color: #deb633;
-}
-
 body {
   background-color: #87b23e;
 }
 
 .card .generalInfo {
 	color: red;
+}
+
+.card .heroTitle {
+	font-weight: bold;
+}
+
+.cardsDiv {
+	padding-top: 20px;
 }

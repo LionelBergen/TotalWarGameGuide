@@ -1,6 +1,6 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Heros">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" class="cardsDiv">
       <div *ngFor="let playableHero of allPlayableHeroes" fxLayout="column" fxLayoutAlign="none" >
         <mat-card class="card">
           <mat-card-header>
@@ -8,9 +8,12 @@
             <mat-card-title>{{ playableHero.Name }}</mat-card-title>
             <mat-card-subtitle> {{ playableHero.Specialty }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="assets/images/{{playableHero.name}}.png" alt="{{ playableHero.name }}">
+          <div class="cardImageContainer">
+            <img mat-card-image class="heroImage" src="assets/images/heros/{{playableHero.name}}.png" alt="{{ playableHero.name }}">
+            <img mat-card-image class="specImage" src="assets/images/specs/{{playableHero.specType}}.png" alt="{{ playableHero.specType }}">
+          </div>
           <mat-card-content>
-            <p class="generalInfo">{{ playableHero.name }}</p>
+            <p class="generalInfo heroTitle">{{ playableHero.name }}</p>
             <p class="generalInfo">Specialty: {{playableHero.specialty}} </p>
             <p class="generalInfo">Rarity: {{ playableHero.rarity }}</p>
             <mat-divider></mat-divider>

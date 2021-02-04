@@ -3,6 +3,7 @@ export interface Hero {
   meleedelay: number;
   hp: number;
   name: string;
+  spectype: string;
   rarity: number;
   specialty: string;
   speed: number;

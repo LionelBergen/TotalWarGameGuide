@@ -15,8 +15,6 @@ export class AppComponent implements OnInit {
   
   ngOnInit() {
     this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe(data => {
-      console.log(data);
-      console.log(data[0]);
       this.allPlayableHeroes = data;
     });
   }

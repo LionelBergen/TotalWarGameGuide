@@ -40,7 +40,8 @@ CREATE TABLE public."Hero" (
 );
 
 CREATE VIEW "PlayableHero" AS SELECT "type" AS Name, "rarity", "specialty", "maxHp" AS HP, "DAMAGE0" AS MeleeDamage, "SPEC0" AS SpecDamage, 
-	"SPECDELAY" AS SpecDelay, "DAMAGEDELAY" AS MeleeDelay, "SPEED0" AS Speed FROM "Hero" WHERE "maxLevel" <= 5;
+	"SPECDELAY" AS SpecDelay, "specType", "DAMAGEDELAY" AS MeleeDelay, "SPEED0" AS Speed 
+	FROM "Hero" WHERE "maxLevel" <= 5;
 
 
 /* 
