@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Hero } from '../../models/hero';
 import { Spec } from '../../models/spec';
@@ -15,6 +15,7 @@ export class HerosComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    console.log(isDevMode());
     this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe((data : Hero[]) => {
       // remove hero that isnt released yet
       data = data.filter(hero => hero.name !== 'Druid');
