@@ -1,0 +1,21 @@
+.specTooltip {
+	width: 300px;
+	margin-left: 10px;
+	margin-top: -210px;
+	opacity: 0.9;
+	z-index: 999;
+	position:relative;
+}
+
+.specTooltip h1 {
+	font-size: 20px;
+}
+
+.specInfoInner {
+	margin-top: -100px;
+	height: 250px;
+}
+
+.number {
+	color: blue;
+}

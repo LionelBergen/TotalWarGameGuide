@@ -10,11 +10,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatTooltipModule } from '@angular/material/Tooltip';
+import { TooltipHeroComponent } from './components/hero/tooltip-hero/tooltip-hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HerosComponent
+    HerosComponent,
+    TooltipHeroComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatCardModule,
     MatDividerModule,
     MatTabsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

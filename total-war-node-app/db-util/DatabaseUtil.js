@@ -6,6 +6,7 @@ const CONNECTION_URL = 'postgres://postgres:postgresql@localhost:5432/total_war_
 class DatabaseUtil {
   constructor() {
   }
+  
   getAllHeroes() {
     const client = createPgClient();
     return new Promise((resolve, reject) => {
