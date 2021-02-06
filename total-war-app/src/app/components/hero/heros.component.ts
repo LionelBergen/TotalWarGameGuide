@@ -14,20 +14,33 @@ export class HerosComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    console.log(isDevMode());
-    this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe((data : Hero[]) => {
-      // remove hero that isnt released yet
-      data = data.filter(hero => hero.name !== 'Druid');
+  async ngOnInit() {
+      this.getAllHereos().then((heros : Hero[]) => {
+        // remove hero that isnt released yet
+        heros = heros.filter(hero => hero.name !== 'Druid');
 
-      // TODO: better way of doing this
-      data.forEach( hero => {
-        hero.maxstep = Number(hero.maxstep);
-        hero.speca = Number(hero.speca);
-        hero.specb = Number(hero.specb);
-      });
-      
-      this.allPlayableHeroes = data;
+        // TODO: better way of doing this
+        heros.forEach( hero => {
+          hero.maxstep = Number(hero.maxstep);
+          hero.speca = Number(hero.speca);
+          hero.specb = Number(hero.specb);
+        });
+        
+        this.allPlayableHeroes = heros;
+    });
+  }
+
+  getAllHereos() {
+    return new Promise(resolve => {
+      if (isDevMode()) {
+        this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe((data : Hero[]) => {
+          return resolve(data);
+        });
+      } else {
+        this.http.get<Hero[]>('../../assets/json/heros.json').subscribe((data : Hero[]) => {
+          return resolve(data);
+        });
+      }
     });
   }
 

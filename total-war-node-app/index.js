@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 
 const DatabaseUtil = require('./db-util/DatabaseUtil');
 
@@ -11,7 +12,13 @@ app.get('/heroes', (req, res) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   
   DatabaseUtil.getAllHeroes().then(function(heroData) {
-    res.json(heroData);
+    fs.writeFile('../total-war-app/src/assets/json/heros.json', JSON.stringify(heroData), function (err) {
+      if (err) {
+        throw err;
+      }
+      console.log('Saved!');
+      res.json(heroData);
+    });
   });
 });
 

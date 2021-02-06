@@ -28,7 +28,9 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {"glob": "index.php", "input": "src/heroku-assets", "output": "." },
+              {"glob": "composer.json", "input": "src/heroku-assets", "output": "." }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
