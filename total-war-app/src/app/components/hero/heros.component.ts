@@ -34,9 +34,11 @@ export class HerosComponent implements OnInit {
     return new Promise(resolve => {
       if (isDevMode()) {
         this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe((data : Hero[]) => {
+          console.log('finished calling get request and writing to file');
           return resolve(data);
         });
       } else {
+        console.log('reading from local file...');
         this.http.get<Hero[]>('../../assets/json/heros.json').subscribe((data : Hero[]) => {
           return resolve(data);
         });

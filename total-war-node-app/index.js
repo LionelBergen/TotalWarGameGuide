@@ -16,7 +16,7 @@ app.get('/heroes', (req, res) => {
       if (err) {
         throw err;
       }
-      console.log('Saved!');
+      console.log('Saved to file, returning data');
       res.json(heroData);
     });
   });
