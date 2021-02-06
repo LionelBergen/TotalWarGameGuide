@@ -13,20 +13,24 @@
       </div>
       <!-- outside the cardImageContainer, since cardImageContainer has a static size, they will all appear in the same place -->
       <!-- dont use ng-hide since we want the element to take up space when hidden -->
-      <tooltip-hero [spec]="getSpecByName(playableHero)" [ngStyle]="{'visibility': shouldDisplayTooltip(playableHero.name) ? 'visible' : 'hidden'}"></tooltip-hero>
-      <mat-card-content>
-        <p class="generalInfo heroTitle">{{ playableHero.name }}</p>
-        <p class="generalInfo">Specialty: {{playableHero.specialty}} </p>
-        <p class="generalInfo">Rarity: {{ playableHero.rarity }}</p>
-        <mat-divider></mat-divider>
-        <p>SpecDamage: {{playableHero.specdamage}}</p>
-        <p>SpecDelay: {{playableHero.specdelay}}</p>
-        <mat-divider></mat-divider>
-        <p>HP: {{ playableHero.hp }}</p>
-        <mat-divider></mat-divider>
-        <p>Damage: {{ playableHero.meleedamage }}</p>
-        <p>Damage Delay: {{ playableHero.meleedelay }}</p>
-      </mat-card-content>
+      <span class="tooltip-container">
+        <tooltip-hero [spec]="getSpecByName(playableHero)" [ngStyle]="{'visibility': shouldDisplayTooltip(playableHero.name) ? 'visible' : 'hidden'}"></tooltip-hero>
+      </span>
+      <div class="cardContentContainer">
+        <mat-card-content>
+          <p class="generalInfo heroTitle">{{ playableHero.name }}</p>
+          <p class="generalInfo">Specialty: {{playableHero.specialty}} </p>
+          <p class="generalInfo">Rarity: {{ playableHero.rarity }}</p>
+          <mat-divider></mat-divider>
+          <p>SpecDamage: {{playableHero.specdamage}}</p>
+          <p>SpecDelay: {{playableHero.specdelay}}</p>
+          <mat-divider></mat-divider>
+          <p>HP: {{ playableHero.hp }}</p>
+          <mat-divider></mat-divider>
+          <p>Damage: {{ playableHero.meleedamage }}</p>
+          <p>Damage Delay: {{ playableHero.meleedelay }}</p>
+        </mat-card-content>
+      </div>
     </mat-card>
   </div>
 </div>
