@@ -16,6 +16,9 @@ export class HerosComponent implements OnInit {
 
   ngOnInit() {
     this.http.get<Hero[]>('http://localhost:3000/heroes').subscribe((data : Hero[]) => {
+      // remove hero that isnt released yet
+      data = data.filter(hero => hero.name !== 'Druid');
+
       // TODO: better way of doing this
       data.forEach( hero => {
         hero.maxstep = Number(hero.maxstep);
