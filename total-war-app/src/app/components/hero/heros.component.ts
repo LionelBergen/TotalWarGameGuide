@@ -16,8 +16,9 @@ export class HerosComponent implements OnInit {
 
   async ngOnInit() {
       this.getAllHereos().then((heros : Hero[]) => {
-        // remove hero that isnt released yet
+        // remove heros that arent released yet, or were decided not to be released
         heros = heros.filter(hero => hero.name !== 'Druid');
+        heros = heros.filter(hero => hero.name !== 'Rogue');
 
         // TODO: better way of doing this
         heros.forEach( hero => {
