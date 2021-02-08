@@ -8,7 +8,7 @@
       </mat-card-header>
       <div class="cardImageContainer">
         <img mat-card-image class="heroImage" src="assets/images/heros/{{playableHero.name}}.png" alt="{{ playableHero.name }}">
-        <img mat-card-image class="specImage" src="assets/images/specs/{{playableHero.spectype}}.png" alt="{{ playableHero.spectype }}">
+        <img mat-card-image class="specImage" (click)="specInfoClick(playableHero.name)" src="assets/images/specs/{{playableHero.spectype}}.png" alt="{{ playableHero.spectype }}">
         <img mat-card-image class="specInfoImage" (click)="specInfoClick(playableHero.name)" src="assets/images/info.png" alt="info">
       </div>
       <!-- outside the cardImageContainer, since cardImageContainer has a static size, they will all appear in the same place -->
