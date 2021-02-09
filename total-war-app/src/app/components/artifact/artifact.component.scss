@@ -1,3 +1,9 @@
+/** Padding between cards and artifact info**/
+.cardsDiv {
+   padding-top: 10px;
+   padding-left: 10px;
+}
+
 .card {
    width: 250px;
    height: 300px;
@@ -18,7 +24,7 @@
    min-height: 200px;
    background-color: #fff1f0;
    border-radius: 25px;
-   margin: 50px;
+   margin: 25px;
    padding: 20px;
 }
 
