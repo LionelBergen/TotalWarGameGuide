@@ -29,15 +29,22 @@
 }
 
 .red {
-	color: #e61e28;
+   background-color: #e61e28;
+   border: 2px solid black;
+   border-radius: 5px;
+    padding: 0px 3px 0 3px;
 }
 
 .green {
-	color: #6cc141;
-   background-color: #787878;
+   background-color: #6cc141;
+   border: 2px solid black;
+   border-radius: 5px;
+    padding: 0px 3px 0 3px;
 }
 
 .yellow {
-	color: #ffd104;
-   background-color: #787878;
+   background-color: #ffd104;
+   border: 2px solid black;
+   border-radius: 5px;
+    padding: 0px 3px 0 3px;
 }
