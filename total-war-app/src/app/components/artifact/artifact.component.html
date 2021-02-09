@@ -1,0 +1,55 @@
+<div class="artifactInfo">
+	<h2>General Info</h2>
+	<p>There are 3 <b>types</b> of artifacts, 'hp,', 'dps' and 'all'.</p>
+	<p>Artifact has a <b>rarity</b> of 1 (green), 2 (yellow), 3 (red). You can upgrade or reset an artifact by regorging, once Forge is unlocked (last building)</p>
+	<p>Artifacts were meant to only be able to be equipped at the correct 'slot' and by the correct 'type' of units. However the lazy devs never implemnted the check on both sides. So if you want a Mage with a WhetStone, select the mage and do the switch. Same for the 'slots', you can have a Warrior with 2 Mage staffs using the same 'trick'.</p>
+
+	<h2>Reforging strategy</h2>
+	<p>A 'Mage' such as WitcherGreen has {{ getNumberOfArtifacts('Mage', 'dps') }} DPS artifacts out of {{ getNumberOfArtifactsTotal('Mage') }} total possible artifacts.</p>
+	<p>A 'Warrior' such as WitcherGreen has {{ getNumberOfArtifacts('Warrior', 'dps') }} DPS artifacts out of {{ getNumberOfArtifactsTotal('Warrior') }} total possible artifacts.</p>
+	<p>A 'Shooter' such as Elf has {{ getNumberOfArtifacts('Shooter', 'dps') }} DPS artifacts out of {{ getNumberOfArtifactsTotal('Shooter') }} total possible artifacts.</p>
+	<p>This means if you are reforging (green), select a 'Shooter' if you'd like a better chance of a DPS artifact, and a lesser chance of an HP or 3-stat artifact.</p>
+	<p>Always choose Warrior if you'd like the greatest chance of an all-HP artifact.</p>
+
+	<h2>Artifact stat calculation</h2>
+	<p><b><i>Note:</i> Artifacts are always multiplied by level</b></p>
+	<p><b>rarityMultiplier: <span class="green">0.20 </span> <span class="yellow">0.32 </span> <span class="red">0.40</span></b></p>
+
+	<h3>HP artifact calculation:</h3>
+	<p>HP% = rarityMultiplier * level</p>
+	<p>Example, for a level 3 yellow artifact: .32 * 3= .96%</p>
+
+	<h3>DPS artifact calculation: </h3>
+	<p>Damage% = <span class="green">Random number between 0-40</span> <span class="yellow">Random number between 24-40</span> <span class="red">40</span></p>
+	<p>Spec% = 200 * rarityMulti - damage%</p>
+	<p>Example simplified:<br><span class="green">Rarity 1:</span> Damage is between 0-40, spec is the remaining (total of 40).<br>
+	<span class="yellow">Rarity of 2:</span> Damage is 24-40, Spec is remaining (total of 64 since .32 * 200 = 64)<br>
+	<span class="red">Rarity of 3:</span> Damage is 40, Spec is remaining 40 (total of 80 since .4 * 200 = 80)</p>
+
+
+
+	<h2>Reforging</h2>
+	<p>A random number between 0.0 and 1.0 is generated E.g in browser via `Math.random()`, which is compared to the percentage at cost.</p>
+	<p>So for 100 yellow/red/greens, the number is compared to 0.10, if the number randomly generated is less than 0.10 the artifact is sucessfuly reforged. For 200, the number is 0.2.</p>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="16px grid" class="cardsDiv">
+  <div *ngFor="let artifact of allArtifacts" fxLayout="column" fxLayoutAlign="none" class="cardContainer">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{ artifact.name }}</mat-card-title>
+      </mat-card-header>
+      <div class="artifactImageContainer">
+        <img mat-card-image class="artifactImage" src="assets/images/artifacts/{{ artifact.name }}.png" alt="{{ artifact.name }}">
+      </div>
+      <div class="cardContentContainer">
+        <mat-card-content>
+          <p class="generalInfo heroTitle">{{ artifact.name }}</p>
+          <p> Slots: {{ artifact.slots }} </p>
+          <p> Specialties: {{ artifact.specialties }} </p>
+          <p> Type: {{ artifact.type }} </p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -12,12 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatTooltipModule } from '@angular/material/Tooltip';
 import { TooltipHeroComponent } from './components/hero/tooltip-hero/tooltip-hero.component';
+import { ArtifactComponent } from './components/artifact/artifact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HerosComponent,
-    TooltipHeroComponent
+    TooltipHeroComponent,
+    ArtifactComponent
   ],
   imports: [
     BrowserModule,

@@ -97,4 +97,76 @@ INSERT INTO public."Hero"("DAMAGE0", "DAMAGEA", "DAMAGEDELAY", "MAXHP0", "MAXHPA
 INSERT INTO public."Hero"("DAMAGE0", "DAMAGEA", "DAMAGEDELAY", "MAXHP0", "MAXHPA", "MAXSTEP", "SPEC0", "SPECA", "SPECB", "SPECDELAY", "SPEED0", "SPEEDA", "actualSpeed", "animationAttack", "animationBlinking", "animationDamage", "animationDying", "animationIdle", "animationSpec", "animationTaunt", "animationWalking", "attackType", "attackDamage", "attackDelay", "maxHp", "maxLevel", "rarity", "specType", "specValue", "specialty", "speed", "type") VALUES(22, 0.0983, 2, 120, 0.1, 10, 1.1, 2, null, 6, 3, 6, -1, 'Attacking', 'Idle Blinking', 'Hurt', 'Dying', 'Idle', 'Taunt', 'Taunt', 'Walking', 'Kick', 22, 2, 120, 5, 2, 'Invisibility', 1.1, 'Warrior', 3, 'EvilDwarf');
 INSERT INTO public."Hero"("DAMAGE0", "DAMAGEA", "DAMAGEDELAY", "MAXHP0", "MAXHPA", "MAXSTEP", "SPEC0", "SPECA", "SPECB", "SPECDELAY", "SPEED0", "SPEEDA", "actualSpeed", "animationAttack", "animationBlinking", "animationDamage", "animationDying", "animationIdle", "animationSpec", "animationTaunt", "animationWalking", "attackType", "attackDamage", "attackDelay", "maxHp", "maxLevel", "rarity", "specType", "specValue", "specialty", "speed", "type") VALUES(10, 0.1, 2, 90, 0.1, 10, 20, 0.1, 1000, 3.1, 3, 6, -1, 'Attacking', 'Idle Blinking', 'Hurt', 'Dying', 'Idle', 'Shooting', 'Taunt', 'Walking', 'Kick', 10, 2, 90, 5, 3, 'WildArrow', 20, 'Shooter', 3, 'Rogue');
 
+CREATE TABLE public."Artifact" (
+	"aD" NUMERIC NOT NULL, 
+	"aH" NUMERIC NOT NULL, 
+	"aS" NUMERIC NOT NULL, 
+	"id" TEXT NOT NULL, 
+	"level" NUMERIC NOT NULL, 
+	"mDPS" NUMERIC NOT NULL,
+	"mHP" NUMERIC NOT NULL, 
+	"mSPEC" NUMERIC NOT NULL, 
+	"rarity" NUMERIC NULL,
+	"slots" TEXT NOT NULL,
+	"specialties" TEXT NOT NULL, 
+	"type" TEXT NOT NULL
+);
+
+CREATE VIEW "WearableArtifact" AS SELECT "aD" AS meleeDamage, "aH" AS HP, "aS" AS spec, "id" AS name, "level" AS level, "rarity" AS rarity, "slots" AS slots, "specialties" AS specialties, 
+		"type" as type
+	FROM "Artifact";
+
+
+/*
+let specialties = ['Warrior', 'Mage', 'Shooter'];
+let allBoosters = [];
+
+for (var i=0; i<specialties.length; i++) {
+	let boostersI = document.getElementById('html-game-frame').contentWindow.allGameData.Boosters.instance.getBoosterBySpecialty(specialties[i]);
+	allBoosters = allBoosters.concat(boostersI);
+}
+
+allBoosters = allBoosters.filter((v, i, a) => a.indexOf(v) === i);
+
+for (var i=0; i<allBoosters.length; i++) {
+  let booster = allBoosters[i];
+  console.log(`INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('${booster.aD}', '${booster.aH}', '${booster.aS}', '${booster.id}', '${booster.level}', '${booster.mDPS}', '${booster.mHP}', '${booster.mSPEC}', '${booster.rarity}', '${booster.slots}', '${booster.specialties}', '${booster.type}');`);
+}
+*/
+
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.12', '0.08', '0.1', 'Ring', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.06', '0.16', '0.01', 'Amulet', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.15', '0.11', '0.01', 'Potion', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.02', '0.19', '0', 'MagicAmulet', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.08', '0.11', '0.08', 'MagicPotion', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'MagicCloack', '0', '1', '1', '1', '1', 'Back', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.12', '0', '0.28', 'WhetStone', '0', '1', '1', '1', '1', '', 'Warrior,Shooter', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.23', '0', '0.17', 'Sword', '0', '1', '1', '1', '1', 'Hand1', 'Warrior', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.16', '0', '0.24', 'CrystalAmulet', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.33', '0', '0.07', 'CrystalRing', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.12', '0', '0.28', 'MagicRing', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'MagicBoots', '0', '1', '1', '1', '1', 'Feet', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'Helmet', '0', '1', '1', '1', '1', 'Head', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'Bracers', '0', '1', '1', '1', '1', 'Hands', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'HighBoots', '0', '1', '1', '1', '1', 'Feet', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'Armor', '0', '1', '1', '1', '1', 'Body', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'Shield', '0', '1', '1', '1', '1', 'Hand2', 'Warrior,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.2', '0', 'HealPotion', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'hp');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.31', '0', '0.09', 'DragonPotion', '0', '1', '1', '1', '1', '', 'Warrior', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.18', '0.01', '0.2', 'Crystal', '0', '1', '1', '1', '1', '', 'Warrior,Shooter,Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.32', '0', '0.08', 'Poison', '0', '1', '1', '1', '1', '', 'Warrior,Shooter', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0', '0.15', '0.09', 'MagicBall', '0', '1', '1', '1', '1', 'Hand1', 'Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.31', '0.01', '0.07', 'RuneBook', '0', '1', '1', '1', '1', '', 'Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.06', '0.16', '0.01', 'MagicBook', '0', '1', '1', '1', '1', '', 'Mage', 'all');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.36', '0', '0.04', 'MagicStaff', '0', '1', '1', '1', '1', 'Hand1', 'Mage', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.29', '0', '0.11', 'ManaPotion', '0', '1', '1', '1', '1', '', 'Mage', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.27', '0', '0.13', 'Bow', '0', '1', '1', '1', '1', 'Hand1,Hand2', 'Shooter', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.18', '0', '0.22', 'Arrow', '0', '1', '1', '1', '1', '', 'Shooter', 'dps');
+INSERT INTO public."Artifact"("aD", "aH", "aS", "id", "level", "mDPS", "mHP", "mSPEC", "rarity", "slots", "specialties", "type") VALUES('0.3', '0', '0.1', 'Quiver', '0', '1', '1', '1', '1', '', 'Shooter', 'dps');
+
+
+
+
+
+
 

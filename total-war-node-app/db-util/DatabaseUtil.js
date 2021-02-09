@@ -8,14 +8,13 @@ class DatabaseUtil {
   }
   
   getAllHeroes() {
-    const client = createPgClient();
-    return new Promise((resolve, reject) => {
-      client.query('SELECT * FROM public."PlayableHero"').then(function(data) {
-        resolve(data.rows);
-        client.end();
-      }).catch(reject);
-    });
+    return runSelectAllQuery("PlayableHero");
   }
+  
+  getAllArtifacts() {
+    return runSelectAllQuery("WearableArtifact");
+  }
+
 }
 
 function createPgClient() {
@@ -23,6 +22,16 @@ function createPgClient() {
   client.connect();
   
   return client;
+}
+
+function runSelectAllQuery(tableName) {
+  const client = createPgClient();
+  return new Promise((resolve, reject) => {
+    client.query(`SELECT * FROM public."${tableName}"`).then(function(data) {
+      resolve(data.rows);
+      client.end();
+    }).catch(reject);
+  });
 }
 
 module.exports = new DatabaseUtil();

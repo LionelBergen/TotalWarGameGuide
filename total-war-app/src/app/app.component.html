@@ -1,9 +1,11 @@
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group animationDuration="0ms" (selectedTabChange)="changeBodyClass($event)">
   <mat-tab label="Heros">
     <heros></heros>
   </mat-tab>
+  <mat-tab label="Artifacts">
+  	<artifacts></artifacts>
+  </mat-tab>
   <!--
-  <mat-tab label="Artifacts"></mat-tab>
   <mat-tab label="Enemies"></mat-tab>
   <mat-tab label="Levels"></mat-tab>
   <mat-tab label="Raids"></mat-tab>
